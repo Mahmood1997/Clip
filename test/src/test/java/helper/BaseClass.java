@@ -2,11 +2,12 @@ package helper;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+//import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
@@ -24,7 +25,7 @@ public class BaseClass {
 	public WebDriver driver;
 	public ExtentReports report;
 	public ExtentTest logger;
-	
+	//find by, how
 	@BeforeSuite
 	public void setupReport()
 	{
@@ -42,9 +43,10 @@ public class BaseClass {
 		{
 			System.out.println("LOG: INFO- Creating Browser Session");
 			driver = BrowserFactories.startBrowser(
-					DataProviderFactory.getConfig().getBrowser()
+			DataProviderFactory.getConfig().getBrowser()
 			,DataProviderFactory.getConfig().getStagingURL());
 			System.out.println("LOG: Info- Browser Session Created");
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		}
 		@AfterMethod
 		public void appendReport(ITestResult result)
@@ -88,13 +90,13 @@ public class BaseClass {
 			System.out.println("LOG: INFO- After Method Executed- Test Result appended to report");
 		}
 		
-		@AfterClass
-		public void closeSessions()
-		{
-			System.out.println("LOG: INFO- Closing Browser Session");
-			driver.quit();
-			System.out.println("LOG: INFO- After method executed");
-		}
+//		@AfterClass
+//		public void closeSessions()
+//		{
+//			System.out.println("LOG: INFO- Closing Browser Session");
+//			driver.quit();
+//			System.out.println("LOG: INFO- After method executed");
+//		}
 }
 
 

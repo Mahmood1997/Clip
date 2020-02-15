@@ -20,7 +20,7 @@ public class BrowserFactories {
 			
 			else if(browsername.equalsIgnoreCase("chrome"))
 			{
-				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "./Drivers.chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "/Drivers/chromedriver.exe");
 				driver=new ChromeDriver();
 			}
 			else if (browsername.equalsIgnoreCase("IE"))

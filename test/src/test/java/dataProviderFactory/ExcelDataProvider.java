@@ -16,7 +16,7 @@ public class ExcelDataProvider {
 	{
 		try
 		{
-			wb = new XSSFWorkbook(new FileInputStream(new File(System.getProperty("user.dir")+"/Test_data/TestData.xlsx")));
+			wb = new XSSFWorkbook(new FileInputStream(new File(System.getProperty("user.dir")+"/Test_data/Book1.xlsx")));
 		}
 		catch(IOException e)
 		{
@@ -27,7 +27,7 @@ public class ExcelDataProvider {
 	 {
 		 XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
 		 
-		 String data= null;
+		 String data = null;
 		 
 		 if(cell.getCellTypeEnum()==CellType.STRING)
 		 {
